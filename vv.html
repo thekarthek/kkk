@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resume | Karthik Bangaru</title>
+  <style>
+    /* CSS - Apple-Style Minimalism */
+    :root { 
+      --bg: #ffffff; 
+      --text: #1d1d1f; 
+      --accent: #0066cc; 
+      --gray: #86868b; 
+      --light-gray: #f5f5f7; 
+    }
+    body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Inter", sans-serif; background: var(--bg); color: var(--text); line-height: 1.5; padding-top: 4rem; }
+    .container { max-width: 800px; margin: 0 auto; padding: 0 2rem; }
+    
+    /* Header */
+    .header { border-bottom: 1px solid #d2d2d7; padding-bottom: 2rem; margin-bottom: 3rem; }
+    h1 { font-size: 3rem; margin: 0; font-weight: 600; letter-spacing: -0.02em; }
+    .contact { display: flex; gap: 20px; color: var(--accent); margin-top: 1rem; font-size: 0.9rem; }
+    
+    /* Sections */
+    .section-title { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gray); margin-bottom: 1.5rem; font-weight: 600; }
+    .experience-item { margin-bottom: 2.5rem; }
+    .job-header { display: flex; justify-content: space-between; font-weight: 600; font-size: 1.1rem; margin-bottom: 0.2rem; }
+    .company { color: var(--gray); font-weight: 400; margin-bottom: 0.5rem; }
+    p { margin: 0; color: #424245; font-size: 1.05rem; }
+    
+    /* Skills Grid */
+    .skill-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .pill { background: var(--light-gray); padding: 12px 16px; border-radius: 12px; font-size: 0.9rem; border: 1px solid rgba(0,0,0,0.05); }
+    
+    /* Back Button */
+    .back-btn { margin-top: 4rem; display: block; color: var(--accent); text-decoration: none; font-weight: 600; }
+    .back-btn:hover { text-decoration: underline; }
+
+    @media (max-width: 600px) { .skill-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="header">
+    <h1>Karthik Bangaru</h1>
+    <div class="contact">
+      <span>email@address.com</span>
+      <span>Hyderabad, India</span>
+      <span>linkedin.com/in/karthik</span>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Professional Experience</div>
+    <!-- Replace content with details from Karthek_Bangaru_Resumeait_compressed (1).pdf -->
+    <div class="experience-item">
+      <div class="job-header"><span>Software Engineering Intern</span> <span>2024</span></div>
+      <div class="company">Google India</div>
+      <p>Focused on distributed systems, optimizing map data caching architectures for high-scale performance.</p>
+    </div>
+    <div class="experience-item">
+      <div class="job-header"><span>Ads Developer</span> <span>2024 - 2025</span></div>
+      <div class="company">Apple</div>
+      <p>Engineered large-scale data pipelines and anomaly detection systems using PySpark and distributed infrastructure.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Education</div>
+    <div class="experience-item">
+      <div class="job-header"><span>MSc in Financial Engineering</span> <span>WorldQuant University</span></div>
+      <p>CGPA: 9.32/10</p>
+    </div>
+    <div class="experience-item">
+      <div class="job-header"><span>B.Tech in Electronics & Engineering</span> <span>JNTUA - KSRMCE</span></div>
+      <p>CPI: 9.2/10 | Recipient of the Institute Academic Prize.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Technical Skills</div>
+    <div class="skill-grid">
+      <div class="pill">Languages: Python, C++, Go</div>
+      <div class="pill">Data: PySpark, Airflow, Distributed Systems</div>
+      <div class="pill">Infrastructure: Kubernetes, gRPC, Cloud</div>
+      <div class="pill">Core: VLSI Design, Signal Processing, Applied Materials</div>
+    </div>
+  </div>
+
+  <a href="index.html" class="back-btn">← Back to Portfolio</a>
+</div>
+
+</body>
+</html>

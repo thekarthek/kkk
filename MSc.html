@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>MSc | Financial Engineering</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:'Inter',sans-serif;
+background:#000;
+color:#fff;
+overflow-x:hidden;
+}
+
+/* Background */
+
+.hero-bg{
+position:fixed;
+inset:0;
+z-index:-1;
+
+background:
+radial-gradient(circle at top,
+rgba(0,122,255,.25),
+transparent 35%),
+
+radial-gradient(circle at bottom,
+rgba(128,0,255,.15),
+transparent 50%);
+
+}
+
+/* Hero */
+
+.hero{
+min-height:100vh;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+text-align:center;
+
+padding:0 40px;
+}
+
+.hero-content{
+max-width:1100px;
+}
+
+.eyebrow{
+
+display:inline-block;
+
+padding:12px 24px;
+
+border-radius:999px;
+
+background:
+rgba(255,255,255,.05);
+
+border:
+1px solid rgba(255,255,255,.08);
+
+font-size:.8rem;
+
+letter-spacing:2px;
+
+margin-bottom:30px;
+
+}
+
+.hero h1{
+
+font-size:
+clamp(5rem,12vw,10rem);
+
+font-weight:900;
+
+line-height:.9;
+
+letter-spacing:-8px;
+
+margin-bottom:30px;
+
+}
+
+.hero-subtitle{
+
+font-size:1.3rem;
+
+max-width:700px;
+
+margin:auto;
+
+line-height:1.8;
+
+opacity:.8;
+
+}
+
+/* Sections */
+
+section{
+
+padding:140px 40px;
+
+max-width:1200px;
+
+margin:auto;
+
+}
+
+.section-label{
+
+display:inline-block;
+
+padding:10px 20px;
+
+border-radius:999px;
+
+background:
+rgba(255,255,255,.05);
+
+border:
+1px solid rgba(255,255,255,.08);
+
+font-size:.8rem;
+
+margin-bottom:30px;
+
+}
+
+h2{
+
+font-size:
+clamp(3rem,6vw,5rem);
+
+font-weight:800;
+
+letter-spacing:-4px;
+
+margin-bottom:30px;
+
+}
+
+p{
+
+font-size:1.2rem;
+
+line-height:2;
+
+opacity:.8;
+
+max-width:900px;
+
+}
+
+/* CGPA Card */
+
+.stats{
+
+display:flex;
+justify-content:center;
+}
+
+.stat-card{
+
+width:450px;
+
+padding:60px;
+
+border-radius:40px;
+
+text-align:center;
+
+background:
+rgba(255,255,255,.05);
+
+border:
+1px solid rgba(255,255,255,.08);
+
+backdrop-filter:
+blur(30px);
+
+}
+
+.stat-card h3{
+
+font-size:6rem;
+
+font-weight:900;
+
+background:
+linear-gradient(
+90deg,
+#fff,
+#7aa7ff
+);
+
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+
+margin:20px 0;
+
+}
+
+/* Subjects */
+
+.subject-grid{
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(260px,1fr));
+
+gap:20px;
+
+margin-top:60px;
+
+}
+
+.subject-card{
+
+padding:35px;
+
+background:
+rgba(255,255,255,.05);
+
+border:
+1px solid rgba(255,255,255,.08);
+
+border-radius:30px;
+
+font-size:1.1rem;
+
+font-weight:600;
+
+transition:.4s;
+
+}
+
+.subject-card:hover{
+
+transform:translateY(-10px);
+
+}
+
+/* Skills */
+
+.skills-grid{
+
+display:flex;
+
+flex-wrap:wrap;
+
+gap:15px;
+
+margin-top:50px;
+
+}
+
+.skill{
+
+padding:14px 24px;
+
+border-radius:999px;
+
+background:
+rgba(255,255,255,.05);
+
+border:
+1px solid rgba(255,255,255,.08);
+
+}
+
+/* Achievement */
+
+.achievement-card{
+
+background:
+rgba(255,255,255,.05);
+
+border:
+1px solid rgba(255,255,255,.08);
+
+border-radius:40px;
+
+padding:70px;
+
+text-align:center;
+
+}
+
+.achievement-icon{
+
+font-size:5rem;
+
+margin-bottom:20px;
+
+}
+
+/* Footer */
+
+.footer{
+
+padding:100px 40px;
+
+text-align:center;
+
+}
+
+.footer a{
+
+color:#4da3ff;
+
+text-decoration:none;
+
+font-size:1.1rem;
+
+font-weight:600;
+
+}
+
+@media(max-width:768px){
+
+.hero h1{
+letter-spacing:-4px;
+}
+
+section{
+padding:80px 25px;
+}
+
+.stat-card{
+width:100%;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="hero-bg"></div>
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div class="hero-content">
+
+<div class="eyebrow">
+🎓 WORLDQUANT UNIVERSITY
+</div>
+
+<h1>
+Financial
+Engineering
+</h1>
+
+<p class="hero-subtitle">
+
+Mastering quantitative finance, data science,
+machine learning and algorithmic systems to
+solve real-world financial challenges.
+
+</p>
+
+</div>
+
+</section>
+
+<!-- CGPA -->
+
+<section class="stats">
+
+<div class="stat-card">
+
+<span>ACADEMIC PERFORMANCE</span>
+
+<h3>9.32</h3>
+
+<p>
+CGPA achieved through dedication,
+research and technical excellence.
+</p>
+
+</div>
+
+</section>
+
+<!-- UNIVERSITY -->
+
+<section>
+
+<div class="section-label">
+🎓 UNIVERSITY EXPERIENCE
+</div>
+
+<h2>
+Learning Beyond
+The Classroom.
+</h2>
+
+<p>
+
+WorldQuant University provided a rigorous and
+industry-focused curriculum in Financial Engineering.
+
+The program combined mathematics, quantitative finance,
+risk analytics, machine learning and computational
+problem solving.
+
+It strengthened my ability to transform complex data
+into actionable insights while developing a strong
+foundation in evidence-based decision making.
+
+</p>
+
+</section>
+
+<!-- SUBJECTS -->
+
+<section>
+
+<div class="section-label">
+📚 CORE SUBJECTS
+</div>
+
+<h2>
+Areas of Study
+</h2>
+
+<div class="subject-grid">
+
+<div class="subject-card">
+📈 Quantitative Finance
+</div>
+
+<div class="subject-card">
+📊 Financial Analytics
+</div>
+
+<div class="subject-card">
+⚡ Algorithmic Trading
+</div>
+
+<div class="subject-card">
+🤖 Machine Learning
+</div>
+
+<div class="subject-card">
+💹 Risk Management
+</div>
+
+<div class="subject-card">
+🧮 Statistical Modeling
+</div>
+
+</div>
+
+</section>
+
+<!-- SKILLS -->
+
+<section>
+
+<div class="section-label">
+🚀 TECHNICAL SKILLS
+</div>
+
+<h2>
+Technical Arsenal
+</h2>
+
+<div class="skills-grid">
+
+<div class="skill">Python</div>
+<div class="skill">SQL</div>
+<div class="skill">Pandas</div>
+<div class="skill">NumPy</div>
+<div class="skill">Machine Learning</div>
+<div class="skill">Scikit-Learn</div>
+<div class="skill">Financial Modeling</div>
+<div class="skill">Risk Analytics</div>
+<div class="skill">Portfolio Optimization</div>
+<div class="skill">Data Visualization</div>
+<div class="skill">Research Methods</div>
+<div class="skill">Algorithmic Trading</div>
+
+</div>
+
+</section>
+
+<!-- RESEARCH -->
+
+<section>
+
+<div class="section-label">
+🧠 RESEARCH MINDSET
+</div>
+
+<h2>
+Building Data-Driven Thinking
+</h2>
+
+<p>
+
+Financial Engineering is where mathematics,
+computer science and economics intersect.
+
+Throughout the program, I developed a research-first
+approach focused on experimentation, statistical
+reasoning and analytical problem solving.
+
+These skills continue to influence how I design
+software systems, analyze data and solve complex
+engineering challenges.
+
+</p>
+
+</section>
+
+<!-- ACHIEVEMENT -->
+
+<section>
+
+<div class="achievement-card">
+
+<div class="achievement-icon">
+🏆
+</div>
+
+<h2>
+Academic Excellence
+</h2>
+
+<p>
+
+Maintained strong academic performance while balancing
+technical projects, research activities and continuous
+professional development.
+
+</p>
+
+</div>
+
+</section>
+
+<!-- FUTURE -->
+
+<section>
+
+<div class="section-label">
+🌍 FUTURE VISION
+</div>
+
+<h2>
+Where Finance
+Meets Technology
+</h2>
+
+<p>
+
+My goal is to leverage quantitative methods,
+artificial intelligence and software engineering
+to create intelligent systems capable of solving
+complex business and financial problems at scale.
+
+</p>
+
+</section>
+
+<!-- FOOTER -->
+
+<div class="footer">
+
+<a href="index.html">
+← Back to Portfolio
+</a>
+
+</div>
+
+</body>
+</html>

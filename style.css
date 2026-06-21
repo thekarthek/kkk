@@ -1,0 +1,462 @@
+/* ==========================================================================
+   1. Dynamic Token Engine (Apple-Style Design System)
+   ========================================================================== */
+:root, [data-theme="apple-light"] {
+  --bg-primary: #f5f5f7;
+  --bg-surface: rgba(255, 255, 255, 0.85);
+  --bg-navbar: rgba(245, 245, 247, 0.72);
+  --text-main: #1d1d1f;
+  --text-muted: #86868b;
+  --text-link: #0066cc;
+  --border-color: rgba(0, 0, 0, 0.06);
+  --gradient-accent: linear-gradient(180deg, #1d1d1f 30%, #6e6e73 100%);
+  --card-glow: rgba(0, 0, 0, 0.025);
+  --navbar-blur: 24px;
+  
+  /* Josh Comeau Specific Colors */
+  --josh-bubble-bg: #ff5252;
+  --josh-bubble-txt: #ffffff;
+}
+
+[data-theme="apple-dark"] {
+  --bg-primary: #000000;
+  --bg-surface: rgba(22, 22, 23, 0.8);
+  --bg-navbar: rgba(0, 0, 0, 0.72);
+  --text-main: #f5f5f7;
+  --text-muted: #86868b;
+  --text-link: #2997ff;
+  --border-color: rgba(255, 255, 255, 0.08);
+  --gradient-accent: linear-gradient(180deg, #ffffff 20%, #86868b 100%);
+  --card-glow: rgba(255, 255, 255, 0.05);
+  --navbar-blur: 24px;
+  
+  /* Dark mode accent bubble variance */
+  --josh-bubble-bg: #2997ff;
+  --josh-bubble-txt: #000000;
+}
+
+/* ==========================================================================
+   2. Reset & Layout Initialization
+   ========================================================================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-main);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.5;
+  overflow-x: hidden;
+  transition: background-color 0.6s cubic-bezier(0.25, 1, 0.5, 1), 
+              color 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+  perspective: 1200px;
+}
+
+/* ==========================================================================
+   3. Josh Comeau Structural Identity Logo Setup (Compact Pure 3D Edition)
+   ========================================================================== */
+.josh-comeau-logo {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  font-family: 'Inter', -apple-system, sans-serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: -0.02em;
+  color: var(--text-main);
+  user-select: none;
+  padding: 8px 16px;
+  border-radius: 12px;
+  perspective: 800px; /* Stronger 3D perspective field */
+  transform-style: preserve-3d;
+  z-index: 10;
+}
+
+/* 3D Pure Code Canvas Container */
+.logo-rain-container {
+  position: absolute;
+  top: -25px;
+  left: -35px;
+  width: calc(100% + 70px);
+  height: calc(100% + 52px);
+  pointer-events: none;
+  z-index: -1;
+  overflow: visible;
+  transform-style: preserve-3d;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Individual Pure-CSS Rainbow Capsules generated dynamically via JS */
+.rain-drop {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  opacity: 0.15; /* Ambient opacity backdrop visibility */
+  transform-style: preserve-3d;
+  will-change: transform, opacity;
+  transition: 
+    opacity 0.5s ease, 
+    transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Brighten, expand, and draw forward into 3D space on header interactive hover */
+.josh-comeau-logo:hover .rain-drop {
+  opacity: 0.9;
+}
+
+/* Smoothly tilt the matrix array blueprint grid on mouse entrance */
+.josh-comeau-logo:hover .logo-rain-container {
+  transform: translateZ(-15px) rotateX(12deg) rotateY(-14deg);
+}
+
+.logo-part-stem,
+.logo-part-tail {
+  transition: color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  z-index: 2;
+}
+
+.logo-pop-bubble {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--josh-bubble-bg);
+  width: 20px;
+  height: 20px;
+  border-radius: 45% 55% 50% 50% / 50% 45% 55% 50%;
+  margin: 0 1px;
+  position: relative;
+  z-index: 2;
+  will-change: transform, border-radius;
+  transition: 
+    background-color 0.5s ease,
+    transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+    border-radius 0.5s ease;
+}
+
+.bubble-char {
+  color: var(--josh-bubble-txt);
+  font-size: 0.75rem;
+  font-weight: 800;
+  display: block;
+  transform: translateY(-0.5px);
+  transition: color 0.5s ease;
+}
+
+.josh-comeau-logo:hover .logo-pop-bubble {
+  transform: scale(1.18) rotate(6deg) translateZ(10px); /* Pops target focus letter outward */
+}
+
+.josh-comeau-logo:hover .logo-part-stem {
+  color: var(--text-link);
+}
+
+/* ==========================================================================
+   4. Apple Frosted Global Navigation Bar Component
+   ========================================================================== */
+.apple-navbar {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 52px;
+  background-color: var(--bg-navbar);
+  backdrop-filter: blur(var(--navbar-blur));
+  -webkit-backdrop-filter: blur(var(--navbar-blur));
+  border-bottom: 1px solid var(--border-color);
+  z-index: 999;
+  transition: background-color 0.6s, border-color 0.6s;
+}
+
+.nav-container {
+  max-width: 1024px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-links-wrapper {
+  display: flex;
+  gap: 3rem;
+}
+
+.nav-link-item {
+  color: var(--text-main);
+  opacity: 0.7;
+  text-decoration: none;
+  font-size: 0.82rem;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  transition: opacity 0.25s, color 0.25s;
+}
+
+.nav-link-item:hover {
+  opacity: 1;
+  color: var(--text-link);
+}
+
+.apple-theme-btn {
+  background: var(--border-color);
+  border: 1px solid var(--border-color);
+  width: 44px;
+  height: 24px;
+  border-radius: 30px;
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 2px;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+.theme-icon {
+  font-size: 0.85rem;
+  position: absolute;
+  left: 4px;
+  will-change: transform;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--text-main);
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  color: transparent;
+  text-shadow: 0 0 0 var(--bg-primary);
+}
+
+/* ==========================================================================
+   5. Hero Section Component & Claymorphic 3D Layer (Josh Comeau Style)
+   ========================================================================== */
+.apple-main {
+  width: 100%;
+}
+
+.apple-hero {
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 6rem 22px 6rem 22px;
+  text-align: center;
+}
+
+.hero-wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero-graphic-canvas {
+  width: 100%;
+  max-width: 220px;
+  margin: 0 auto 3rem auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  filter: drop-shadow(0 30px 50px rgba(0, 0, 0, 0.15));
+}
+
+.clay-hero-asset {
+  width: 100%;
+  height: auto;
+  border-radius: 28px;
+  object-fit: cover;
+  will-change: transform;
+  animation: appleHeroFloat 6s ease-in-out infinite;
+}
+
+@keyframes appleHeroFloat {
+  0% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-12px) rotate(0.5deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
+}
+
+.hero-eyebrow {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-bottom: 1.2rem;
+}
+
+.hero-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 4.4rem;
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.03em;
+  margin-bottom: 2.5rem;
+  margin-top: 1.5rem;
+}
+
+.gradient-text{
+
+background:
+linear-gradient(
+90deg,
+#ffffff,
+#9bc7ff,
+#7b61ff
+);
+
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+
+}
+
+.hero-subtitle {
+  font-size: 1.45rem;
+  font-weight: 400;
+  line-height: 1.45;
+  color: var(--text-muted);
+  letter-spacing: -0.01em;
+}
+
+/* ==========================================================================
+   6. General Layout Sections & Luxury Hardware Cards
+   ========================================================================== */
+.apple-section {
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 6rem 22px 7rem 22px;
+  border-top: 1px solid var(--border-color);
+}
+
+.section-header {
+  margin-bottom: 3.5rem;
+}
+
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.4rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.apple-row-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.apple-triple-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+/* Premium Apple Hardware Box Blueprint */
+.apple-card {
+  background-color: var(--bg-surface);
+  border-radius: 22px;
+  padding: 3rem;
+  border: 1px solid var(--border-color);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  will-change: transform, box-shadow;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.01);
+  transition: background-color 0.6s, border-color 0.6s, box-shadow 0.4s;
+  transform-style: preserve-3d;
+}
+
+/* Ambient Radial Hover Lighting Overlay Effect via mouse tracking */
+.apple-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), var(--card-glow) 0%, transparent 60%);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+  z-index: 1;
+}
+
+.apple-card:hover{
+
+transform:
+translateY(-10px);
+
+border-color:
+rgba(120,120,255,.4);
+
+}
+
+.card-content {
+  position: relative;
+  z-index: 2;
+  transform-style: preserve-3d;
+}
+
+.card-meta {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  margin-bottom: 0.8rem;
+  transform: translateZ(15px);
+}
+
+.card-heading {
+  font-size: 1.6rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  transform: translateZ(25px);
+}
+
+.card-subheading {
+  font-size: 0.98rem;
+  font-weight: 500;
+  color: var(--text-main);
+  opacity: 0.85;
+  margin-top: 0.3rem;
+  margin-bottom: 1.5rem;
+  transform: translateZ(20px);
+}
+
+.card-description {
+  font-size: 0.98rem;
+  color: var(--text-muted);
+  line-height: 1.55;
+  transform: translateZ(10px);
+}
+
+/* ==========================================================================
+   7. Fluid Viewport Responsiveness Breakpoints
+   ========================================================================== */
+@media (max-width: 900px) {
+  .hero-title {
+    font-size: 3.2rem;
+  }
+  .hero-subtitle {
+    font-size: 1.2rem;
+  }
+  .nav-links-wrapper {
+    display: none;
+  }
+  .apple-row-grid, .apple-triple-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .apple-card {
+    padding: 2.2rem;
+  }
+}

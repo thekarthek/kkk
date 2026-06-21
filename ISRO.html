@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="apple-dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ISRO Mission Architecture | Karthik Bangaru</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  
+  <link rel="stylesheet" href="style.css">
+  <style>
+    :root {
+      --space-bg: #0b0f19;
+      --space-card: #131a2c;
+      --space-border: rgba(255, 255, 255, 0.08);
+      --radar-glow: #00ff66;
+      --accent-orbit: #3a86ff;
+    }
+
+    body.space-theme {
+      background-color: var(--space-bg);
+      color: #f5f7fa;
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+    }
+
+    .space-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 8rem 2rem 4rem 2rem;
+    }
+
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #a0aec0;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.2s ease;
+      margin-bottom: 3rem;
+    }
+
+    .back-btn:hover {
+      color: var(--accent-orbit);
+    }
+
+    .mission-header {
+      border-bottom: 1px solid var(--space-border);
+      padding-bottom: 2.5rem;
+      margin-bottom: 3rem;
+      position: relative;
+    }
+
+    .mission-badge {
+      display: inline-block;
+      background: rgba(58, 134, 255, 0.15);
+      color: var(--accent-orbit);
+      padding: 0.35rem 0.85rem;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 1rem;
+      border: 1px solid rgba(58, 134, 255, 0.3);
+    }
+
+    .mission-title {
+      font-size: 3rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      margin: 0 0 0.5rem 0;
+    }
+
+    .mission-meta-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .meta-box {
+      background: var(--space-card);
+      border: 1px solid var(--space-border);
+      padding: 1.25rem;
+      border-radius: 12px;
+    }
+
+    .meta-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      color: #718096;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.25rem;
+    }
+
+    .meta-value {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #e2e8f0;
+    }
+
+    .architecture-layout {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 3rem;
+    }
+
+    @media (max-width: 768px) {
+      .architecture-layout {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      .mission-title {
+        font-size: 2.2rem;
+      }
+    }
+
+    .section-heading-space {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .section-heading-space::before {
+      content: '';
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      background: var(--radar-glow);
+      border-radius: 50%;
+    }
+
+    .brief-paragraph {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: #cbd5e0;
+      margin-bottom: 2rem;
+    }
+
+    .telemetry-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 2rem 0;
+    }
+
+    .telemetry-item {
+      position: relative;
+      padding-left: 1.75rem;
+      margin-bottom: 1.25rem;
+      line-height: 1.6;
+      color: #cbd5e0;
+    }
+
+    .telemetry-item::before {
+      content: '└─';
+      position: absolute;
+      left: 0;
+      color: var(--accent-orbit);
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .tech-pill-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .tech-pill {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--space-border);
+      padding: 0.4rem 0.8rem;
+      border-radius: 6px;
+      color: #e2e8f0;
+    }
+
+    .metric-radial-card {
+      background: radial-gradient(circle at top right, rgba(0, 255, 102, 0.07), transparent);
+      border: 1px solid rgba(0, 255, 102, 0.2);
+      padding: 2rem;
+      border-radius: 16px;
+      text-align: center;
+      position: sticky;
+      top: 8rem;
+    }
+
+    .metric-value-large {
+      font-size: 4rem;
+      font-weight: 700;
+      color: var(--radar-glow);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .metric-label-large {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #cbd5e0;
+    }
+  </style>
+</head>
+<body class="space-theme">
+
+  <div class="space-container">
+    <a href="index.html#experience" class="back-btn">
+      <span>←</span> Back to Architecture
+    </a>
+
+    <header class="mission-header">
+      <span class="mission-badge">Remote Sensing Ops</span>
+      <h1 class="mission-title">Indian Space Research Organisation</h1>
+      <p style="color: #718096; margin: 0; font-size: 1.2rem;">Space Applications Centre (SAC)</p>
+
+      <div class="mission-meta-grid">
+        <div class="meta-box">
+          <div class="meta-label">Role Designation</div>
+          <div class="meta-value">Satellite Imagery Testing Intern</div>
+        </div>
+        <div class="meta-box">
+          <div class="meta-label">Timeline Segment</div>
+          <div class="meta-value">Nov 2025 - Apr 2026</div>
+        </div>
+        <div class="meta-box">
+          <div class="meta-label">Deployment Hub</div>
+          <div class="meta-value">Ahmedabad, India</div>
+        </div>
+      </div>
+    </header>
+
+    <div class="architecture-layout">
+      <div class="main-intel">
+        <section style="margin-bottom: 3rem;">
+          <h2 class="section-heading-space">Mission Scope & Core Objective</h2>
+          <p class="brief-paragraph">
+            Tasked with refining the integrity pipelines of next-generation multi-spectral imaging payloads. 
+            The focus centered on designing completely autonomous verification boundaries to scrub, validate, and 
+            benchmark massive raster layers streaming directly from remote-sensing products.
+          </p>
+        </section>
+
+        <section style="margin-bottom: 3rem;">
+          <h2 class="section-heading-space">Engineering Contributions</h2>
+          <ul class="telemetry-list">
+            <li class="telemetry-item">
+              <strong>Automated Validation Layers:</strong> Built end-to-end Python engine modules to scan incoming raw geo-spatial records, dropping pipeline visual exceptions instantly into strict handling queues.
+            </li>
+            <li class="telemetry-item">
+              <strong>Computer Vision Filtering:</strong> Leveraged advanced <strong>OpenCV</strong> structures to target, track, and flag data artifacts, ensuring clean spectral telemetry output profiles.
+            </li>
+            <li class="telemetry-item">
+              <strong>Geospatial Coordinate Mapping:</strong> Utilized the <strong>GDAL/OGR</strong> translation library to align coordinate spaces and ensure clean geospatial data consistency across deep telemetry maps.
+            </li>
+          </ul>
+        </section>
+
+        <section>
+          <h2 class="section-heading-space">Stack Deployment</h2>
+          <div class="tech-pill-container">
+            <span class="tech-pill">Python Core</span>
+            <span class="tech-pill">OpenCV</span>
+            <span class="tech-pill">GDAL</span>
+            <span class="tech-pill">Multi-Spectral Analytics</span>
+            <span class="tech-pill">Geospatial Arrays</span>
+            <span class="tech-pill">Pipeline Automation</span>
+          </div>
+        </section>
+      </div>
+
+      <div class="side-metrics">
+        <div class="metric-radial-card">
+          <div class="metric-value-large">40%</div>
+          <div class="metric-label-large">Reduction in Manual Inspection Overhead</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      if (typeof gsap !== "undefined") {
+        gsap.from(".mission-header > *", {
+          y: 20,
+          opacity: 0,
+          duration: 0.6,
+          stagger: 0.15,
+          ease: "power2.out"
+        });
+        
+        gsap.from(".architecture-layout", {
+          y: 30,
+          opacity: 0,
+          duration: 0.8,
+          delay: 0.4,
+          ease: "power2.out"
+        });
+      }
+    });
+  </script>
+</body>
+</html>

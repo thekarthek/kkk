@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="apple-light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Karthik Bangaru | Portfolio</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+
+  <style>
+    /* New Footer Styles */
+    .apple-footer { background: #1a3a4a; color: #fff; padding: 6rem 2rem 3rem 2rem; position: relative; margin-top: 150px; }
+    .footer-wave-top { position: absolute; top: -80px; left: 0; width: 100%; height: 120px; background: #1a3a4a; border-radius: 50% 50% 0 0 / 100% 100% 0 0; }
+    .footer-content { display: grid; grid-template-columns: 1fr 2fr; max-width: 1100px; margin: 0 auto; gap: 5rem; }
+    .brand { font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; }
+    .newsletter-form { display: flex; background: #0d1f29; padding: 5px; border-radius: 12px; margin-top: 1rem; max-width: 350px; }
+    .newsletter-form input { background: transparent; border: none; color: white; padding: 12px; flex: 1; outline: none; }
+    .newsletter-form button { background: #ffcc00; border: none; padding: 0 20px; border-radius: 8px; cursor: pointer; font-weight: bold; }
+    .footer-links { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+    .footer-links h4 { font-size: 0.75rem; opacity: 0.6; margin-bottom: 1.2rem; letter-spacing: 0.05em; }
+    .footer-links ul { list-style: none; }
+    .footer-links li { margin-bottom: 0.8rem; font-size: 0.9rem; cursor: pointer; opacity: 0.9; }
+    .footer-links li:hover { opacity: 1; text-decoration: underline; }
+    @media (max-width: 768px) { .footer-content, .footer-links { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+  <header class="apple-navbar">
+    <div class="nav-container">
+      <a href="#about" class="josh-comeau-logo" id="interactive-josh-logo" aria-label="Karthik Home Link">
+        <div class="logo-rain-container" id="logo-rain-backdrop"></div>
+        <span class="logo-part-stem">karth</span>
+        <span class="logo-pop-bubble"><span class="bubble-char">i</span></span>
+        <span class="logo-part-tail">k</span>
+      </a>
+      <nav class="nav-links-wrapper">
+  <!-- Change href="#about" to "Overview.html" -->
+  <a href="Overview.html" class="nav-link-item">Overview</a>
+  <a href="#achievements" class="nav-link-item">Standings</a>
+  <a href="#education" class="nav-link-item">Education</a>
+  <a href="#experience" class="nav-link-item">Experience</a>
+</nav>
+      <button class="apple-theme-btn" id="apple-theme-toggle" aria-label="Toggle Apple Theme State">
+        <span class="theme-icon">🌓</span>
+      </button>
+    </div>
+  </header>
+
+  <main class="apple-main">
+    <section class="apple-hero" id="about">
+      <div class="hero-wrapper">
+        <div class="hero-graphic-canvas">
+          <img src="Boy_Dark" alt="3D Creative Spatial Core Architecture" class="clay-hero-asset">
+        </div>
+        <span class="hero-eyebrow">Karthik Bangaru</span>
+        <h1 class="hero-title">
+Build.
+Create.
+Scale.
+</h1>
+
+<p class="hero-subtitle">
+AI Engineer, Software Builder, and National Swimmer.
+Focused on creating products that combine
+intelligence, engineering and beautiful design.
+</p>
+<p class="hero-subtitle">Systems and Ads Software Engineer specializing in ultra-scale distributed caching layers, automated high-throughput imagery testing pipelines, and decentralized cryptographic environments.</p>
+      </div>
+    </section>
+
+    <section class="apple-section" id="achievements">
+      <div class="section-header"><h2 class="section-title">Scholastic Standings</h2></div>
+      <div class="apple-triple-grid">
+        <div class="apple-card milestone-card">
+          <div class="card-content">
+            <span class="card-meta">Competitive Examination</span>
+            <h3 class="card-heading">AIR 162</h3>
+            <p class="card-subheading">JEE Advanced 2021</p>
+            <p class="card-description">Placed in the absolute upper tier out of roughly 140,000 national candidates.</p>
+          </div>
+        </div>
+        <div class="apple-card milestone-card">
+          <div class="card-content">
+            <span class="card-meta">International Camp</span>
+            <h3 class="card-heading">IMO Shortlist</h3>
+            <p class="card-subheading">Olympiad Training Camp</p>
+            <p class="card-description">Selected to participate in the prestigious International Mathematical Olympiad Training Camp.</p>
+          </div>
+        </div>
+        <div class="apple-card milestone-card">
+          <div class="card-content">
+            <span class="card-meta">Algorithmic Standing</span>
+            <h3 class="card-heading">Expert</h3>
+            <p class="card-subheading">Codeforces Rating 2100</p>
+            <p class="card-description">Ranked dynamically in the top 500 competitive program tracking segments globally on CodeChef.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="apple-section" id="education">
+  <div class="section-header"><h2 class="section-title">Academic Track</h2></div>
+  <div class="apple-row-grid">
+    <a href="MSc.html" class="apple-card program-card" style="text-decoration:none; color:inherit;">
+      <div class="card-content">
+        <span class="card-meta">Postgraduate Track | Washington D.C, USA</span>
+        <h3 class="card-heading">MSc in Financial Engineering</h3>
+        <p class="card-subheading">WorldQuant University (WQU)</p>
+        <p class="card-description">A rigorous, quantitative curriculum focusing on advanced mathematical models. Graduated with a CGPA of 9.32/10.</p>
+      </div>
+    </a>
+    
+    <a href="Btech.html" class="apple-card program-card" style="text-decoration:none; color:inherit;">
+      <div class="card-content">
+        <span class="card-meta">Undergraduate Track | 2021 - 2025</span>
+        <h3 class="card-heading">B.Tech in Electronics & Engineering</h3>
+        <p class="card-subheading">JNTUA - KSRMCE</p>
+        <p class="card-description">Specialized tracking in Applied Materials. Maintained highly pristine metrics with a 9.2/10 CPI, receiving the Institute Academic Prize.</p>
+      </div>
+    </a>
+  </div>
+</section>
+
+    <section class="apple-section" id="experience">
+      <div class="section-header"><h2 class="section-title">Professional Track</h2></div>
+      <div class="apple-row-grid">
+        <a href="google.html" class="apple-card core-experience-card" style="text-decoration: none; color: inherit; display: flex;">
+          <div class="card-content">
+            <span class="card-meta">May - Jul 2024 | Hyderabad</span>
+            <h3 class="card-heading">Google India</h3>
+            <p class="card-subheading">Software Engineering Intern</p>
+            <p class="card-description">Engineered a distributed caching architecture for Google Maps handling 50M+ daily transactions, driving down P99 query latency paths by 35% using Go, gRPC, and Kubernetes clusters.</p>
+            <span class="view-cert-badge" style="display: inline-block; margin-top: 1.5rem; font-size: 0.75rem; font-weight: 600; color: var(--text-link, #0071e3); text-transform: uppercase; letter-spacing: 0.05em; border-bottom: 1px dashed var(--text-link, #0071e3); padding-bottom: 2px;">View Internship Overview ↗</span>
+          </div>
+        </a>
+        <a href="experience.html" class="apple-card core-experience-card" style="text-decoration: none; color: inherit; display: flex;">
+          <div class="card-content">
+            <span class="card-meta">Feb 2024 - May 2025 | Remote</span>
+            <h3 class="card-heading">Apple</h3>
+            <p class="card-subheading">Ads Developer</p>
+            <p class="card-description">Optimized intensive corporate data tracking pipelines processing 500M+ real-time ad events daily using PySpark and Airflow. Built an AI anomaly detection engine boosting issue resolution speed by 3x.</p>
+            <span class="view-cert-badge" style="display: inline-block; margin-top: 1.5rem; font-size: 0.75rem; font-weight: 600; color: var(--text-link, #0071e3); text-transform: uppercase; letter-spacing: 0.05em; border-bottom: 1px dashed var(--text-link, #0071e3); padding-bottom: 2px;">Click to Open Application Panel ↗</span>
+          </div>
+        </a>
+        <a href="ISRO.html" class="apple-card core-experience-card" style="text-decoration: none; color: inherit; display: flex;">
+          <div class="card-content">
+            <span class="card-meta">Nov 2025 - Apr 2026 | Space Applications Centre</span>
+            <h3 class="card-heading">ISRO</h3>
+            <p class="card-subheading">Satellite Imagery Testing Intern</p>
+            <p class="card-description">Developed automated Python validation pipelines using OpenCV and GDAL for multi-spectral remote sensing products, saving 40% manual inspection overheads.</p>
+            <span class="view-cert-badge" style="display: inline-block; margin-top: 1.5rem; font-size: 0.75rem; font-weight: 600; color: var(--text-link, #0071e3); text-transform: uppercase; letter-spacing: 0.05em; border-bottom: 1px dashed var(--text-link, #0071e3); padding-bottom: 2px;">Explore Telemetry Metrics ↗</span>
+          </div>
+        </a>
+        <a href="IIT.html" class="apple-card core-experience-card" style="text-decoration: none; color: inherit; display: flex;">
+          <div class="card-content">
+            <span class="card-meta">Dec 2023 - Jan 2024 | Systems Lab</span>
+            <h3 class="card-heading">IIT Bombay</h3>
+            <p class="card-subheading">Research Intern</p>
+            <p class="card-description">Implemented a highly optimized custom C++ low-level memory allocator, achieving a 2x processing throughput increase over standard malloc on intense system architectures. Published findings at SOSP-WiP 2024.</p>
+            <span class="view-cert-badge" style="display: inline-block; margin-top: 1.5rem; font-size: 0.75rem; font-weight: 600; color: var(--text-link, #0071e3); text-transform: uppercase; letter-spacing: 0.05em; border-bottom: 1px dashed var(--text-link, #0071e3); padding-bottom: 2px;">View Low-Level Benchmarks ↗</span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- Footer added here -->
+    <footer class="apple-footer">
+      <div class="footer-wave-top"></div>
+      <div class="footer-content">
+        <div class="footer-left">
+          <div class="brand">Karthik Bangaru</div>
+          <p style="opacity: 0.8;">Engineering at the intersection of systems and scale.</p>
+          <form class="newsletter-form">
+            <input type="email" placeholder="email@address.com">
+            <button type="submit">→</button>
+          </form>
+        </div>
+        <div class="footer-links">
+          <div><h4>CATEGORIES</h4><ul><li>Systems</li><li>Blockchain</li><li>AI Research</li></ul></div>
+          <div><h4>INTERACTIVE</h4><ul><li>GitHub Repo</li><li>Techfest Talk</li></ul></div>
+          <div><h4>GENERAL</h4><!-- Inside your footer <ul> for GENERAL -->
+<ul>
+  <li><a href="about_karthek.html" style="color: inherit; text-decoration: none;">About Karthek</a></li>
+  <li>Contact</li>
+  <li><a href="resume.html" style="color: inherit; text-decoration: none;">Resume</a></li>
+</ul></div>
+        </div>
+      </div>
+    </footer>
+  </main>
+</body>
+</html>
