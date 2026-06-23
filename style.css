@@ -161,17 +161,21 @@ body {
 /* ==========================================================================
    4. Apple Frosted Global Navigation Bar Component
    ========================================================================== */
-.apple-navbar {
-  position: sticky;
-  top: 0;
-  width: 100%;
-  height: 52px;
-  background-color: var(--bg-navbar);
-  backdrop-filter: blur(var(--navbar-blur));
-  -webkit-backdrop-filter: blur(var(--navbar-blur));
-  border-bottom: 1px solid var(--border-color);
-  z-index: 999;
-  transition: background-color 0.6s, border-color 0.6s;
+.apple-navbar{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:52px;
+
+  background:rgba(5,8,22,.35);
+
+  backdrop-filter:blur(24px);
+  -webkit-backdrop-filter:blur(24px);
+
+  border-bottom:1px solid rgba(255,255,255,.08);
+
+  z-index:9999;
 }
 
 .nav-container {
@@ -238,7 +242,8 @@ body {
    5. Hero Section Component & Claymorphic 3D Layer (Josh Comeau Style)
    ========================================================================== */
 .apple-main {
-  width: 100%;
+  width:100%;
+  padding-top:60px;
 }
 
 .apple-hero {
@@ -459,4 +464,38 @@ rgba(120,120,255,.4);
   .apple-card {
     padding: 2.2rem;
   }
+}
+/* ===== WAVE DIVIDER ===== */
+
+.wave-divider{
+    width:100%;
+    height:180px;
+    overflow:hidden;
+    margin-top:120px;
+    position:relative;
+}
+
+.wave-divider svg{
+    width:100%;
+    height:100%;
+    display:block;
+}
+
+.wave-divider::before{
+    content:"";
+    position:absolute;
+    left:50%;
+    top:-120px;
+    transform:translateX(-50%);
+    width:1200px;
+    height:500px;
+
+    background:
+    radial-gradient(
+        circle,
+        rgba(0,212,255,.15),
+        transparent 70%
+    );
+
+    pointer-events:none;
 }

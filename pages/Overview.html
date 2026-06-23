@@ -3,145 +3,196 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Overview | Karthik Bangaru</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>Karthik Bangaru | Creative Studio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-
     <style>
-        :root {
-            --bg: #050816;
-            --surface: #0d1324;
-            --border: rgba(255,255,255,0.08);
-            --text: #ffffff;
-            --muted: #94a3b8;
-            --accent: #00d4ff;
-        }
+:root{
+--bg:#050816;
+--text:#ffffff;
+--card:#0f172a;
+--muted:#94a3b8;
+--border:rgba(255,255,255,.08);
+--accent:#00d4ff;
+}        * { box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Inter", sans-serif; background: var(--bg); color: var(--text); padding: 40px; margin: 0; }
+        .container { max-width: 1100px; margin: 0 auto; }
+        .bento-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; grid-auto-rows: 220px; }
+        .card { background: var(--card); border-radius: 32px; padding: 32px; border: 1px solid var(--border); transition: 0.5s; display: flex; flex-direction: column; justify-content: space-between; overflow: hidden; }
+        .card:hover{
+transform:
+translateY(-8px);
 
-        body {
-            font-family: 'Inter', sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            margin: 0;
-            padding: 60px 20px;
-        }
+border-color:
+rgba(255,255,255,.15);
 
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
+box-shadow:
+0 25px 80px rgba(0,0,0,.4);
+}
+        .title { font-size: 11px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
+        .data { font-size: 20px; font-weight: 600; margin-top: 8px; }
+        
+        .pill{
+background:rgba(255,255,255,.08);
+padding:8px 14px;
+border-radius:999px;
+font-size:12px;
+}
 
-        .bento-grid {
-            display: grid;
-            grid-template-columns: repeat(6, 1fr);
-            gap: 20px;
-        }
-
-        .card {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: 30px;
-            padding: 25px;
-        }
-
-        #map {
-            width: 100%;
-            height: 250px;
-            border-radius: 20px;
-            filter: invert(0.9) hue-rotate(180deg) brightness(0.95) contrast(0.9);
-        }
-
-        .social-link {
-            font-size: 2.5rem;
-            filter: drop-shadow(0 10px 15px rgba(0,0,0,0.5));
-            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-            display: inline-block;
-            text-decoration: none;
-        }
-
-        .social-link:hover {
-            transform: translateY(-10px) scale(1.1);
-        }
+        /* Grid Layouts */
+        .hero { grid-column: span 2; grid-row: span 2; }
+        .map-box { grid-column: span 2; grid-row: span 2; }
+        .gallery-box { grid-column: span 2; }
+        
+        #map { width: 100%; height: 100%; border-radius: 20px; filter: grayscale(1) contrast(1.1); }
+        #wave { width: 100%; height: 60px; }
+        .art-icon { font-size: 2rem; }
     </style>
 </head>
 <body>
 
 <div class="container">
+
     <div class="bento-grid">
-        <div class="card" style="grid-column: span 6;">
-            <div id="map"></div>
-            <p style="margin-top: 20px; color: var(--muted); font-size: 0.95rem;">
-                I'm from Hyderabad, India, roughly 3,000km away from your location.
-            </p>
-        </div>
+        <!-- Hero Section -->
+        <div class="card hero">
+    <div>
+        <div class="title">KARTHIK OS • 2026</div>
 
-        <div class="card" style="grid-column: span 6; background: #050816; border: 1px solid var(--border);">
-            <h3 style="margin: 0 0 15px 0; font-size: 1rem; color: var(--muted);">Real-Time Data Throughput</h3>
-            <canvas id="waveform-canvas" style="width: 100%; height: 150px;"></canvas>
+        <div class="data" style="font-size:42px;line-height:1.1">
+            Building Products,<br>
+            Experiments &<br>
+            Digital Experiences
         </div>
+    </div>
 
-        <footer class="card" style="grid-column: span 6; text-align: center;">
-            <h3 style="margin-bottom: 20px; font-weight: 600;">Let's connect.</h3>
-            <div style="display: flex; justify-content: center; gap: 40px;">
-                <a href="https://github.com/thekarthek" target="_blank" class="social-link">💻</a>
-                <a href="https://linkedin.com/in/thekarthek" target="_blank" class="social-link">🔗</a>
-                <a href="mailto:thekarthek@gmail.com" class="social-link">📧</a>
-            </div>
-        </footer>
+    <p style="color:var(--muted)">
+        Software Engineer, National Swimmer,
+        AI Explorer and Builder.
+    </p>
+
+    <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <span class="pill">🌊 SyncWaveform</span>
+        <span class="pill">🤖 AI Systems</span>
+        <span class="pill">🚀 Building</span>
     </div>
 </div>
 
-<script>
-    // Initialize Map centered on Hyderabad
-    var map = L.map('map', { 
-        zoomControl: false, 
-        attributionControl: false,
-        dragging: false 
-    }).setView([17.3850, 78.4867], 4);
-    
+        <!-- Map -->
+        <div class="card map-box"><div id="map"></div></div>
+
+        <!-- Music & Arts -->
+        <div class="card">
+    <div class="title">World Time</div>
+
+    <div style="margin-top:10px">
+        <small>🇮🇳 Hyderabad</small>
+        <div class="data" id="indiaTime"></div>
+    </div>
+
+    <div style="margin-top:20px">
+        <small>🇺🇸 New York</small>
+        <div class="data" id="usTime"></div>
+    </div>
+</div>
+
+        <!-- Music Player Simulation -->
+        <div class="card">
+            <div class="title">Music</div>
+            <div class="data">Hans Zimmer</div>
+            <canvas id="wave"></canvas>
+        </div>
+        <div class="card">
+
+    <div class="title">
+        National Swimmer
+    </div>
+
+    <div style="font-size:70px;text-align:center">
+        🏊
+    </div>
+
+    <div class="data">
+        10+ Years
+    </div>
+
+    <small style="color:var(--muted)">
+        Discipline • Consistency • Resilience
+    </small>
+
+</div>
+
+        <!-- Gallery -->
+        <div class="card gallery-box"
+onclick="window.location.href='galleries.html'"
+style="cursor:pointer;">
+            <div class="title">Gallery</div>
+            <div style="display: flex; gap: 10px; height: 100%; align-items: flex-end;">
+                <div style="width: 100%; height: 60%; background: #d2d2d7; border-radius: 12px;"></div>
+                <div style="width: 100%; height: 90%; background: #0071e3; border-radius: 12px;"></div>
+                <div style="width: 100%; height: 40%; background: #d2d2d7; border-radius: 12px;"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>function updateWorldClocks(){
+
+document.getElementById("indiaTime").innerHTML =
+new Date().toLocaleTimeString(
+'en-IN',
+{
+timeZone:'Asia/Kolkata',
+hour:'2-digit',
+minute:'2-digit'
+}
+);
+
+document.getElementById("usTime").innerHTML =
+new Date().toLocaleTimeString(
+'en-US',
+{
+timeZone:'America/New_York',
+hour:'2-digit',
+minute:'2-digit'
+}
+);
+
+}
+
+setInterval(updateWorldClocks,1000);
+updateWorldClocks();
+    // Initialize Map
+    const map = L.map('map', { zoomControl: false, dragging: false }).setView([17.385, 78.486], 5);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
-    L.marker([17.3850, 78.4867]).addTo(map);
+    L.marker([17.385, 78.486]).addTo(map);
+    
 
-    // CRITICAL FIX: Ensure map resizes correctly upon rendering the DOM
-    setTimeout(function() {
-        map.invalidateSize();
-    }, 100);
-
-    // Waveform Animation Logic
-    const canvas = document.getElementById('waveform-canvas');
+    // Waveform
+    const canvas = document.getElementById('wave');
     const ctx = canvas.getContext('2d');
-
-    function updateCanvasSize() {
-        canvas.width = canvas.offsetWidth;
-        canvas.height = 150;
-    }
-    window.addEventListener('resize', updateCanvasSize);
-    updateCanvasSize();
-
-    function drawWave(progress) {
+    function draw() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-        ctx.beginPath();
-        ctx.strokeStyle = '#00d4ff';
-        ctx.lineWidth = 2;
-
-        for (let i = 0; i < canvas.width; i++) {
-            const y = 75 + Math.sin(i * 0.02 + progress * 5) * 30 * Math.cos(i * 0.005 + progress);
+        ctx.beginPath(); ctx.strokeStyle = '#0071e3'; ctx.lineWidth = 3;
+        for(let i=0; i<canvas.width; i++) {
+            const y = 30 + Math.sin(i * 0.1 + Date.now()/200) * 15;
             i === 0 ? ctx.moveTo(i, y) : ctx.lineTo(i, y);
         }
         ctx.stroke();
+        requestAnimationFrame(draw);
     }
+    draw();
+    
 
-    gsap.to({}, {
-        scrollTrigger: {
-            trigger: "#waveform-canvas",
-            start: "top bottom",
-            end: "bottom top",
-            scrub: 0.5,
-            onUpdate: (self) => drawWave(self.progress)
-        }
-    });
+    // Clocks
+    setInterval(() => {
+        document.querySelectorAll('.data[data-tz]').forEach(el => {
+            el.innerText = new Date().toLocaleTimeString('en-US', { timeZone: el.dataset.tz, hour: '2-digit', minute: '2-digit', hour12: true });
+        });
+    }, 1000);
 </script>
 
 </body>
