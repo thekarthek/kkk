@@ -764,3 +764,66 @@ display:none;
     }
 
 }
+/* ==========================================
+   OVERVIEW - MOBILE RESPONSIVE
+========================================== */
+
+@media (max-width:768px){
+
+    body{
+        overflow-x:hidden;
+    }
+
+    section{
+        padding:60px 20px;
+    }
+
+    .container,
+    .wrapper,
+    .overview-container{
+        width:100%;
+        max-width:100%;
+        padding:0 20px;
+    }
+
+    h1{
+        font-size:38px;
+        line-height:1.1;
+    }
+
+    h2{
+        font-size:28px;
+    }
+
+    h3{
+        font-size:22px;
+    }
+
+    p{
+        font-size:16px;
+        line-height:1.8;
+    }
+
+    img{
+        width:100%;
+        height:auto;
+    }
+
+    .grid,
+    .cards,
+    .overview-grid{
+        display:grid;
+        grid-template-columns:1fr;
+        gap:20px;
+    }
+
+    .card{
+        padding:22px;
+    }
+
+    button,
+    .btn{
+        width:100%;
+    }
+
+}
