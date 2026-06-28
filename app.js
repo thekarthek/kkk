@@ -218,3 +218,128 @@ function initSmoothScrollTracking() {
     });
   });
 }
+/* ======================================
+   APPLE LOGO REVEAL
+====================================== */
+
+const logo = document.getElementById("interactive-josh-logo");
+const overlay = document.getElementById("profileOverlay");
+const closeBtn = document.getElementById("closeOverlay");
+const photo = document.getElementById("overlayPhoto");
+
+if (logo && overlay && photo) {
+
+    logo.addEventListener("click", () => {
+
+    overlay.classList.add("active");
+
+    const rect = logo.getBoundingClientRect();
+
+    const tl = gsap.timeline();
+
+    tl.set(".overlay-content",{
+        transformOrigin:"top left",
+        x:rect.left,
+        y:rect.top,
+        scale:0.06,
+        opacity:0
+    });
+
+    tl.to(".apple-main",{
+        scale:.96,
+        filter:"blur(12px)",
+        duration:.6,
+        ease:"power2.out"
+    },0);
+
+    tl.to(".overlay-content",{
+        x:0,
+        y:0,
+        scale:1,
+        opacity:1,
+        duration:1,
+        ease:"expo.out"
+    },0);
+
+    tl.from("#overlayPhoto",{
+        x:-250,
+        rotateY:-35,
+        rotateX:18,
+        scale:.7,
+        duration:1.2,
+        ease:"power4.out"
+    },.15);
+
+    tl.from(".overlay-text",{
+        x:120,
+        opacity:0,
+        duration:.8
+    },.35);
+
+});
+
+        const rect = logo.getBoundingClientRect();
+
+gsap.set(".overlay-content",{
+    x: rect.left - window.innerWidth/2 + 90,
+    y: rect.top - window.innerHeight/2 + 40,
+    scale:.08,
+    opacity:0
+});
+
+gsap.to(".overlay-content",{
+    x:0,
+    y:0,
+    scale:1,
+    opacity:1,
+    duration:1,
+    ease:"power4.out"
+});
+
+    function closeOverlay(){
+
+        gsap.to(".overlay-content",{
+
+            opacity:0,
+
+            scale:.85,
+
+            y:-40,
+
+            duration:.45,
+
+            ease:"power3.in",
+
+            onComplete(){
+
+                overlay.classList.remove("active");
+
+            }
+
+        });
+
+    }
+
+    closeBtn.addEventListener("click",closeOverlay);
+
+    overlay.addEventListener("click",(e)=>{
+
+        if(e.target===overlay){
+
+            closeOverlay();
+
+        }
+
+    });
+
+    document.addEventListener("keydown",(e)=>{
+
+        if(e.key==="Escape"){
+
+            closeOverlay();
+
+        }
+
+    });
+
+}

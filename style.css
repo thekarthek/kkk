@@ -57,6 +57,143 @@ body {
   perspective: 1200px;
 }
 
+/* ==========================
+   Premium Hero Logo
+========================== */
+
+.hero-header{
+
+    display:flex;
+    align-items:center;
+    gap:34px;
+
+    margin-bottom:55px;
+
+}
+
+.personal-mark{
+
+    width:110px;
+    height:110px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:32px;
+
+    background:rgba(255,255,255,.65);
+
+    backdrop-filter:blur(25px);
+
+    box-shadow:
+
+        0 20px 60px rgba(0,0,0,.08),
+
+        inset 0 1px rgba(255,255,255,.9);
+
+    transition:.45s ease;
+
+}
+
+.personal-mark:hover{
+
+    transform:
+        translateY(-6px)
+        rotate(-5deg);
+
+    box-shadow:
+
+        0 35px 90px rgba(0,0,0,.18);
+
+}
+
+.kb-logo{
+
+    width:74px;
+    height:74px;
+
+    color:#111;
+
+}
+
+.hero-intro{
+
+    font-size:20px;
+
+    color:#888;
+
+    margin:0;
+
+    letter-spacing:.04em;
+
+}
+
+.hero-name{
+
+    font-size:72px;
+
+    font-weight:700;
+
+    line-height:1;
+
+    margin:8px 0;
+
+    letter-spacing:-3px;
+
+}
+
+.hero-eyebrow{
+
+    color:#777;
+
+    font-size:17px;
+
+}
+
+[data-theme="apple-dark"] .personal-mark{
+
+    background:rgba(30,30,30,.75);
+
+    box-shadow:
+
+        0 20px 60px rgba(0,0,0,.55),
+
+        inset 0 1px rgba(255,255,255,.08);
+
+}
+
+[data-theme="apple-dark"] .kb-logo{
+
+    color:white;
+
+}
+
+@media(max-width:768px){
+
+.hero-header{
+
+    flex-direction:column;
+
+    align-items:flex-start;
+
+}
+
+.hero-name{
+
+    font-size:52px;
+
+}
+
+.personal-mark{
+
+    width:90px;
+
+    height:90px;
+
+}
+
+}
 /* ==========================================================================
    3. Josh Comeau Structural Identity Logo Setup (Compact Pure 3D Edition)
    ========================================================================== */
@@ -163,19 +300,32 @@ body {
    ========================================================================== */
 .apple-navbar{
   position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:52px;
 
-  background:rgba(5,8,22,.35);
+  top:18px;
+  left:50%;
 
-  backdrop-filter:blur(24px);
-  -webkit-backdrop-filter:blur(24px);
+  transform:translateX(-50%);
 
-  border-bottom:1px solid rgba(255,255,255,.08);
+  width:min(1200px,95%);
+  height:64px;
 
   z-index:9999;
+
+  background:
+  rgba(25,25,40,.55);
+
+  backdrop-filter:blur(30px);
+  -webkit-backdrop-filter:blur(30px);
+
+  border:1px solid rgba(255, 255, 255, 0.947);
+
+  border-radius:22px;
+
+  box-shadow:
+  0 10px 40px rgba(242, 241, 241, 0.989),
+  inset 0 1px 0 rgba(255, 255, 255, 0.918);
+
+  transition:all .4s ease;
 }
 
 .nav-container {
@@ -213,7 +363,7 @@ body {
   border: 1px solid var(--border-color);
   width: 44px;
   height: 24px;
-  border-radius: 30px;
+  border-radius: 990px;
   cursor: pointer;
   position: relative;
   display: flex;
@@ -376,126 +526,103 @@ linear-gradient(
   transition: background-color 0.6s, border-color 0.6s, box-shadow 0.4s;
   transform-style: preserve-3d;
 }
+/* ===========================
+        Footer Character
+=========================== */
 
-/* Ambient Radial Hover Lighting Overlay Effect via mouse tracking */
-.apple-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), var(--card-glow) 0%, transparent 60%);
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.4s ease;
-  z-index: 1;
-}
+.apple-footer{
 
-.apple-card:hover{
-
-transform:
-translateY(-10px);
-
-border-color:
-rgba(120,120,255,.4);
-
-}
-
-.card-content {
-  position: relative;
-  z-index: 2;
-  transform-style: preserve-3d;
-}
-
-.card-meta {
-  display: block;
-  font-size: 0.72rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--text-muted);
-  margin-bottom: 0.8rem;
-  transform: translateZ(15px);
-}
-
-.card-heading {
-  font-size: 1.6rem;
-  font-weight: 600;
-  letter-spacing: -0.02em;
-  line-height: 1.25;
-  transform: translateZ(25px);
-}
-
-.card-subheading {
-  font-size: 0.98rem;
-  font-weight: 500;
-  color: var(--text-main);
-  opacity: 0.85;
-  margin-top: 0.3rem;
-  margin-bottom: 1.5rem;
-  transform: translateZ(20px);
-}
-
-.card-description {
-  font-size: 0.98rem;
-  color: var(--text-muted);
-  line-height: 1.55;
-  transform: translateZ(10px);
-}
-
-/* ==========================================================================
-   7. Fluid Viewport Responsiveness Breakpoints
-   ========================================================================== */
-@media (max-width: 900px) {
-  .hero-title {
-    font-size: 3.2rem;
-  }
-  .hero-subtitle {
-    font-size: 1.2rem;
-  }
-  .nav-links-wrapper {
-    display: none;
-  }
-  .apple-row-grid, .apple-triple-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-  .apple-card {
-    padding: 2.2rem;
-  }
-}
-/* ===== WAVE DIVIDER ===== */
-
-.wave-divider{
-    width:100%;
-    height:180px;
-    overflow:hidden;
-    margin-top:120px;
     position:relative;
+
+    overflow:visible;
+
 }
 
-.wave-divider svg{
-    width:100%;
-    height:100%;
-    display:block;
-}
+.footer-character{
 
-.wave-divider::before{
-    content:"";
     position:absolute;
-    left:50%;
-    top:-120px;
-    transform:translateX(-50%);
-    width:1200px;
-    height:500px;
 
-    background:
-    radial-gradient(
-        circle,
-        rgba(0,212,255,.15),
-        transparent 70%
-    );
+    top:-220px;
+
+    left:80px;
+
+    width:320px;
+
+    z-index:20;
 
     pointer-events:none;
+
+    animation:footerFloat 6s ease-in-out infinite;
+
+    filter:
+        drop-shadow(0 35px 45px rgba(0,0,0,.25));
+
+}
+
+.footer-character-img{
+
+    width:100%;
+
+    display:block;
+
+    user-select:none;
+
+}
+
+/* Floating */
+
+@keyframes footerFloat{
+
+0%{
+
+transform:
+translateY(0)
+rotate(-8deg);
+
+}
+
+25%{
+
+transform:
+translateY(-18px)
+rotate(-5deg);
+
+}
+
+50%{
+
+transform:
+translateY(0)
+rotate(-3deg);
+
+}
+
+75%{
+
+transform:
+translateY(-12px)
+rotate(-6deg);
+
+}
+
+100%{
+
+transform:
+translateY(0)
+rotate(-8deg);
+
+}
+
+}
+
+/* Responsive */
+
+@media(max-width:900px){
+
+.footer-character{
+
+display:none;
+
+}
+
 }
