@@ -649,27 +649,43 @@ display:none;
    Mobile Responsive
 ========================== */
 
-@media (max-width: 768px) {
+@media (max-width:768px){
 
     .nav-container{
+
         width:95%;
         height:56px;
-        padding:0 18px;
-    }
+        padding:0 14px;
 
-    .josh-comeau-logo,
-    .logo-part-stem{
-        font-size:18px !important;
     }
 
     .nav-links-wrapper{
-        display:none;   /* Hide menu on mobile */
+
+        display:flex;
+        gap:14px;
+
+    }
+
+    .nav-link-item{
+
+        font-size:12px;
+
+    }
+
+    .logo-part-stem{
+
+        font-size:16px !important;
+
     }
 
     .apple-theme-btn{
-        width:46px;
-        height:26px;
+
+        width:40px;
+        height:24px;
+
     }
+
+}
 
     .theme-dot{
         width:18px;
