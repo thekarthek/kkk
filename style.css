@@ -645,3 +645,83 @@ display:none;
 }
 
 }
+/* ==========================
+   Mobile Responsive
+========================== */
+
+@media (max-width: 768px) {
+
+    .nav-container{
+        width:95%;
+        height:56px;
+        padding:0 18px;
+    }
+
+    .josh-comeau-logo,
+    .logo-part-stem{
+        font-size:18px !important;
+    }
+
+    .nav-links-wrapper{
+        display:none;   /* Hide menu on mobile */
+    }
+
+    .apple-theme-btn{
+        width:46px;
+        height:26px;
+    }
+
+    .theme-dot{
+        width:18px;
+        height:18px;
+    }
+
+    .apple-hero{
+        padding:110px 20px 50px;
+    }
+
+    .hero-header{
+        flex-direction:column;
+        align-items:center;
+        text-align:center;
+        gap:20px;
+    }
+
+    .hero-name{
+        font-size:42px;
+        line-height:1.1;
+        letter-spacing:-2px;
+    }
+
+    .hero-subtitle{
+        font-size:18px;
+    }
+
+    .hero-intro{
+        font-size:16px;
+    }
+
+    .personal-mark{
+        width:80px;
+        height:80px;
+    }
+
+    .kb-logo{
+        width:55px;
+        height:55px;
+    }
+
+    .apple-row-grid,
+    .apple-triple-grid{
+        grid-template-columns:1fr;
+    }
+
+    .apple-card{
+        padding:24px;
+    }
+
+    .footer-character{
+        display:none;
+    }
+
+}
