@@ -343,3 +343,36 @@ gsap.to(".overlay-content",{
     });
 
 }
+const themeBtn = document.getElementById("apple-theme-toggle");
+
+themeBtn.addEventListener("click", () => {
+
+    const body = document.body;
+
+    if(body.getAttribute("data-theme")==="apple-dark"){
+
+        body.setAttribute("data-theme","apple-light");
+
+        localStorage.setItem("theme","apple-light");
+
+    }else{
+
+        body.setAttribute("data-theme","apple-dark");
+
+        localStorage.setItem("theme","apple-dark");
+
+    }
+
+});
+
+const savedTheme = localStorage.getItem("theme");
+
+if(savedTheme){
+
+    document.body.setAttribute("data-theme",savedTheme);
+
+}else{
+
+    document.body.setAttribute("data-theme","apple-light");
+
+}

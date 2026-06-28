@@ -253,31 +253,6 @@ body {
   transform: translateZ(-15px) rotateX(12deg) rotateY(-14deg);
 }
 
-.logo-part-stem,
-.logo-part-tail {
-  transition: color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  position: relative;
-  z-index: 2;
-}
-
-.logo-pop-bubble {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--josh-bubble-bg);
-  width: 20px;
-  height: 20px;
-  border-radius: 45% 55% 50% 50% / 50% 45% 55% 50%;
-  margin: 0 1px;
-  position: relative;
-  z-index: 2;
-  will-change: transform, border-radius;
-  transition: 
-    background-color 0.5s ease,
-    transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275),
-    border-radius 0.5s ease;
-}
-
 .bubble-char {
   color: var(--josh-bubble-txt);
   font-size: 0.75rem;
@@ -295,99 +270,102 @@ body {
   color: var(--text-link);
 }
 
-/* ==========================================================================
-   4. Apple Frosted Global Navigation Bar Component
-   ========================================================================== */
+   /* ==========================================
+   APPLE GLASS NAVBAR
+========================================== */
+
 .apple-navbar{
-  position:fixed;
-
-  top:18px;
-  left:50%;
-
-  transform:translateX(-50%);
-
-  width:min(1200px,95%);
-  height:64px;
-
-  z-index:9999;
-
-  background:
-  rgba(25,25,40,.55);
-
-  backdrop-filter:blur(30px);
-  -webkit-backdrop-filter:blur(30px);
-
-  border:1px solid rgba(255, 255, 255, 0.947);
-
-  border-radius:22px;
-
-  box-shadow:
-  0 10px 40px rgba(242, 241, 241, 0.989),
-  inset 0 1px 0 rgba(255, 255, 255, 0.918);
-
-  transition:all .4s ease;
+    position:fixed;
+    top:20px;
+    left:0;
+    width:100%;
+    display:flex;
+    justify-content:center;
+    z-index:9999;
 }
 
-.nav-container {
-  max-width: 1024px;
-  height: 100%;
-  margin: 0 auto;
-  padding: 0 22px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+.nav-container{
+
+    width:min(50%,1000px);
+    height:45px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:0 32px;
+
+    border-radius:999px;
+
+    background:rgba(248, 244, 244, 0.906);
+
+    backdrop-filter:blur(30px) saturate(180%);
+    -webkit-backdrop-filter:blur(30px) saturate(180%);
+
+    border:1px solid rgba(255,255,255,.18);
+
+    box-shadow:
+        0 10px 40px rgba(0,0,0,.12),
+        inset 0 1px 0 rgba(255,255,255,.25);
+
+    transition:.45s ease;
+
 }
 
-.nav-links-wrapper {
-  display: flex;
-  gap: 3rem;
+[data-theme="apple-dark"] .nav-container{
+
+    background:rgba(18,18,18,.45);
+
+    border:1px solid rgba(255,255,255,.08);
+
 }
 
-.nav-link-item {
-  color: var(--text-main);
-  opacity: 0.7;
-  text-decoration: none;
-  font-size: 0.82rem;
-  font-weight: 400;
-  letter-spacing: -0.01em;
-  transition: opacity 0.25s, color 0.25s;
+.josh-comeau-logo{
+
+    display:flex;
+    align-items:center;
+
+    text-decoration:none;
+
+    color:var(--text-main);
+
+    font-size:10px;
+
+    font-weight:700;
+
+    letter-spacing:-1px;
+
 }
 
-.nav-link-item:hover {
-  opacity: 1;
-  color: var(--text-link);
+.nav-links-wrapper{
+
+    display:flex;
+
+    gap:75px;
+
 }
 
-.apple-theme-btn {
-  background: var(--border-color);
-  border: 1px solid var(--border-color);
-  width: 44px;
-  height: 24px;
-  border-radius: 990px;
-  cursor: pointer;
-  position: relative;
-  display: flex;
-  align-items: center;
-  padding: 2px;
-  transition: background-color 0.3s, border-color 0.3s;
+.nav-link-item{
+
+    color:var(--text-main);
+
+    text-decoration:none;
+
+    font-size:15px;
+
+    font-weight:500;
+
+    opacity:.72;
+
+    transition:.3s;
+
 }
 
-.theme-icon {
-  font-size: 0.85rem;
-  position: absolute;
-  left: 4px;
-  will-change: transform;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--text-main);
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  color: transparent;
-  text-shadow: 0 0 0 var(--bg-primary);
-}
+.nav-link-item:hover{
 
+    opacity:1;
+
+}
 /* ==========================================================================
    5. Hero Section Component & Claymorphic 3D Layer (Josh Comeau Style)
    ========================================================================== */
@@ -475,6 +453,47 @@ linear-gradient(
   line-height: 1.45;
   color: var(--text-muted);
   letter-spacing: -0.01em;
+}
+.apple-theme-btn{
+
+    width:62px;
+    height:34px;
+
+    border:none;
+
+    border-radius:999px;
+
+    background:rgba(255,255,255,.12);
+
+    backdrop-filter:blur(20px);
+
+    border:1px solid rgba(255,255,255,.18);
+
+    display:flex;
+    align-items:center;
+
+    padding:4px;
+
+    cursor:pointer;
+
+    transition:.4s;
+
+}
+
+.theme-dot{
+
+    width:26px;
+    height:26px;
+
+    border-radius:50%;
+
+    background:white;
+
+    box-shadow:
+    0 3px 12px rgba(0,0,0,.25);
+
+    transition:.4s;
+
 }
 
 /* ==========================================================================
