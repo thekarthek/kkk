@@ -648,59 +648,51 @@ display:none;
 /* ==========================
    Mobile Responsive
 ========================== */
-
 @media (max-width:768px){
 
-    .nav-container{
+    /* ---------- Navbar ---------- */
 
-        width:95%;
+    .nav-container{
+        width:96%;
         height:56px;
         padding:0 14px;
+    }
 
+    .josh-comeau-logo,
+    .logo-part-stem{
+        font-size:16px !important;
     }
 
     .nav-links-wrapper{
-
         display:flex;
-        gap:14px;
-
+        gap:12px;
     }
 
     .nav-link-item{
-
         font-size:12px;
-
-    }
-
-    .logo-part-stem{
-
-        font-size:16px !important;
-
     }
 
     .apple-theme-btn{
-
-        width:40px;
+        width:42px;
         height:24px;
-
     }
-
-}
 
     .theme-dot{
         width:18px;
         height:18px;
     }
 
+    /* ---------- Hero ---------- */
+
     .apple-hero{
-        padding:110px 20px 50px;
+        padding:100px 20px 50px;
     }
 
     .hero-header{
         flex-direction:column;
         align-items:center;
         text-align:center;
-        gap:20px;
+        gap:18px;
     }
 
     .hero-name{
@@ -727,6 +719,8 @@ display:none;
         height:55px;
     }
 
+    /* ---------- Cards ---------- */
+
     .apple-row-grid,
     .apple-triple-grid{
         grid-template-columns:1fr;
@@ -736,8 +730,37 @@ display:none;
         padding:24px;
     }
 
+    /* ---------- Footer Jump Character ---------- */
+
+    .apple-footer{
+        position:relative;
+        overflow:visible;
+        padding-top:90px;
+    }
+
     .footer-character{
-        display:none;
+
+        display:block;
+
+        position:absolute;
+
+        top:-90px;
+
+        left:50%;
+
+        transform:translateX(-50%);
+
+        width:170px;
+
+        z-index:999;
+
+        pointer-events:none;
+
+    }
+
+    .footer-character-img{
+        width:100%;
+        display:block;
     }
 
 }
